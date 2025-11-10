@@ -431,58 +431,6 @@ export default function Home() {
                      </Card>
                   </div>
 
-                  {/* Year-on-Year Comparison - Area Chart */}
-                  <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
-                     <CardHeader className="border-b bg-gradient-to-r from-blue-50 to-indigo-50">
-                        <div className="flex items-center justify-between">
-                           <div>
-                              <CardTitle className="flex items-center gap-2">
-                                 <div className="p-2 bg-blue-100 rounded-lg">
-                                    <TrendingUp className="w-5 h-5 text-blue-600" />
-                                 </div>
-                                 Year-on-Year Sales Comparison
-                              </CardTitle>
-                              <CardDescription className="mt-2">
-                                 Total sales performance across financial years (in Lakhs ₹)
-                              </CardDescription>
-                           </div>
-                           <Badge className="bg-blue-600">
-                              {allYears.length} Years View
-                           </Badge>
-                        </div>
-                     </CardHeader>
-                     <CardContent className="pt-6">
-                        <ChartContainer config={yearlyChartConfig} className="h-[400px] w-full">
-                           <AreaChart data={yearOnYearData}>
-                              <defs>
-                                 <linearGradient id="colorSales" x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="5%" stopColor="hsl(var(--chart-1))" stopOpacity={0.8} />
-                                    <stop offset="95%" stopColor="hsl(var(--chart-1))" stopOpacity={0.1} />
-                                 </linearGradient>
-                              </defs>
-                              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                              <XAxis
-                                 dataKey="year"
-                                 angle={-45}
-                                 textAnchor="end"
-                                 height={80}
-                              />
-                              <YAxis />
-                              <ChartTooltip content={<ChartTooltipContent />} />
-                              <Area
-                                 type="monotone"
-                                 dataKey="sales"
-                                 stroke="hsl(var(--chart-1))"
-                                 strokeWidth={3}
-                                 fill="url(#colorSales)"
-                                 dot={{ fill: "hsl(var(--chart-1))", r: 4 }}
-                                 activeDot={{ r: 6 }}
-                              />
-                           </AreaChart>
-                        </ChartContainer>
-                     </CardContent>
-                  </Card>
-
                   {/* Quarterly and Monthly Sales Grid */}
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                      {/* Quarterly Sales - Pie Chart */}
@@ -577,6 +525,58 @@ export default function Home() {
                         </CardContent>
                      </Card>
                   </div>
+
+                  {/* Year-on-Year Comparison - Area Chart */}
+                  <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
+                     <CardHeader className="border-b bg-gradient-to-r from-blue-50 to-indigo-50">
+                        <div className="flex items-center justify-between">
+                           <div>
+                              <CardTitle className="flex items-center gap-2">
+                                 <div className="p-2 bg-blue-100 rounded-lg">
+                                    <TrendingUp className="w-5 h-5 text-blue-600" />
+                                 </div>
+                                 Year-on-Year Sales Comparison
+                              </CardTitle>
+                              <CardDescription className="mt-2">
+                                 Total sales performance across financial years (in Lakhs ₹)
+                              </CardDescription>
+                           </div>
+                           <Badge className="bg-blue-600">
+                              {allYears.length} Years View
+                           </Badge>
+                        </div>
+                     </CardHeader>
+                     <CardContent className="pt-6">
+                        <ChartContainer config={yearlyChartConfig} className="h-[400px] w-full">
+                           <AreaChart data={yearOnYearData}>
+                              <defs>
+                                 <linearGradient id="colorSales" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="5%" stopColor="hsl(var(--chart-1))" stopOpacity={0.8} />
+                                    <stop offset="95%" stopColor="hsl(var(--chart-1))" stopOpacity={0.1} />
+                                 </linearGradient>
+                              </defs>
+                              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                              <XAxis
+                                 dataKey="year"
+                                 angle={-45}
+                                 textAnchor="end"
+                                 height={80}
+                              />
+                              <YAxis />
+                              <ChartTooltip content={<ChartTooltipContent />} />
+                              <Area
+                                 type="monotone"
+                                 dataKey="sales"
+                                 stroke="hsl(var(--chart-1))"
+                                 strokeWidth={3}
+                                 fill="url(#colorSales)"
+                                 dot={{ fill: "hsl(var(--chart-1))", r: 4 }}
+                                 activeDot={{ r: 6 }}
+                              />
+                           </AreaChart>
+                        </ChartContainer>
+                     </CardContent>
+                  </Card>
 
                   {/* Footer Info */}
                   <div className="bg-white/60 backdrop-blur-sm rounded-xl p-6 border border-slate-200 shadow-sm">
